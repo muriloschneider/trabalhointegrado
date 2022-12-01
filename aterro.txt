@@ -1,8 +1,0 @@
-ID                             
-Data                           
-Tipo de relevo                 
-Classificação do corpo d'água  
-Volume da amostra              
-Número de recipientes          
-Resultado                      
------------------------------
