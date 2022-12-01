@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: none;
+  border: 2px solid #76A60F;
+  border-radius: 50px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+ 
+
+/* li {
+    float: left;
+} */
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+    background-color: #04AA6D;
+}
