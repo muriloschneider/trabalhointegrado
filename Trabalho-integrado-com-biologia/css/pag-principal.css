@@ -1,0 +1,80 @@
+/* Importando a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+    border: 0;
+    font-weight: 800;
+  }
+
+body{
+    /* background: url("../img/jpg/background.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main{
+    /* background-color: rgb(255, 255, 255); */
+    /* width: 100px;
+    height: 200px; */
+    /* margin: 20px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.coluna{
+    width: 550px;
+    height: 540px;
+    /* background-color: white; */
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+p{
+    color: #76A60F;
+    font-family: 'Karla', sans-serif;
+    font-size: 32px;
+    line-height: 37px;
+    padding-left: 20px;
+}
+
+.linha{
+    width: 550px;
+    height: 140px;
+    border: 2px solid #76A60F;
+    border-radius: 10px;    
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.linha-cor{
+    width: 550px;
+    height: 140px;
+    background-color: #76A60F;
+    border: 2px solid #76A60F;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    padding-left: 20px;
+}
+
+#circulo{
+    border-radius: 50%;
+}
+
+

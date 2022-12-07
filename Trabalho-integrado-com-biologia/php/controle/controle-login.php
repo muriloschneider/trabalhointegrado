@@ -6,7 +6,7 @@
     try {
         //Login do usuário com sucesso, Login do usuário sem sucesso, Logout do usuário
         if(Monitor::autenticar($email, $senha)) {
-            header("Location: ../../index.php?msg=Usuário logado com sucesso!");
+            header("Location: ../../view/monitor/perfil.php");
         } else if(isset($_POST['login_moni']) && isset($_POST['senha_moni'])) {
             header("Location: ../../view/monitor/login-cadastro.php?msg=invalido");
         } else {

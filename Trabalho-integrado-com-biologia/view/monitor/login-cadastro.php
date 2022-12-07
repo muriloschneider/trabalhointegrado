@@ -90,7 +90,7 @@
 
                 <div class="carousel">
                     <div class="imager-wrapper">
-                        <!-- <img src="../../img/png/login.png"> -->
+                        <img src="../../img/jpg/slider.jpg" >
                     </div>
                 </div>
             </div>
@@ -98,35 +98,5 @@
 
         <script src="../../js/login-cadastro.js"></script>
 
-        <!-- <form action="../../php/controle/controle-login.php" method="post">
-            <h2>Login</h2>
-                <label for="login_moni">Login</label>
-                <input class="" type="" id="login_moni" name="login_moni" placeholder="login" value="" required>
-                <label for="senha_moni">Senha</label>
-                <input class="" type="password" id="senha_moni" name="senha_moni" placeholder="senha" value="" minlength="8" required>
-                
-                <button class="" type="submit" id="" name="" value="">entrar</button>
-                <a href="cadastro.php">Ainda não tenho cadastro</a>
-            </div>
-        </form> -->
-
-    <!--     
-        <form action="../../php/controle/controle-cadastro.php" method="post">
-            <h2>Cadastro</h2>
-                <label for="nome_moni">Nome</label>
-                <input class="" type="" id="nome_moni" name="nome_moni" placeholder="login" value="" required>
-                <label for="cpf_moni">CPF</label>
-                <input class="" type="password" id="cpf_moni" name="cpf_moni" placeholder="senha" value="" minlength="8" required>
-                <label for="login_moni">Login</label>
-                <input class="" type="password" id="login_moni" name="login_moni" placeholder="senha" value="" minlength="8" required>
-                <label for="senha_moni">Senha</label>
-                <input class="" type="password" id="senha_moni" name="senha_moni" placeholder="senha" value="" minlength="8" required>
-                <label for="contato_moni">Contato</label>
-                <input class="" type="password" id="contato_moni" name="contato_moni" placeholder="senha" value="" minlength="8" required>
-
-                <button class="" type="submit" id="" name="" value="">entrar</button>
-                <a href="cadastro.php">Ainda não tenho cadastro</a>
-            </div>
-        </form> -->
 </body>
 </html>

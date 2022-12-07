@@ -28,7 +28,7 @@
         <main>
             <div class="heading">
                 <h2>Informações do perfil</h2>
-                <a href="../../index.php"><img src="../../img/icons/backIconW.svg" width="60rem"></a>            
+                <a href="../../index.php"><img src="../../img/icons/funcionario.svg" style="background-color: black;" width="60rem"></a>            
             </div>
         
             <form action="../../php/controle/controle-perfil.php" method="post" enctype="multipart/form-data">                           
@@ -45,13 +45,13 @@
                             <input required class="" type="email" id="telefone" name="login_moni" placeholder="" value="<?php echo $info['login_moni'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                         
                             <label for="usuaSenha">Senha</label>
-                            <input required onkeyup='confirmarSenha();' class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="" minlength="8" value="<?php if(!isset($_GET['update'])) {echo $info['usuaSenha'];}?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                            <input required onkeyup='confirmarSenha();' class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="" minlength="8" value="<?php echo $info['senha_moni'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
 
-                            <label <?php if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenha">Nova senha</label>
-                            <input onkeyup='confirmarSenha();' class="<?php if(!isset($_GET['update'])) {echo "oculto";} else {echo "show";}?>" type="password" id="novaUsuaSenha" name="novaUsuaSenha" placeholder="" minlength="8" maxlength="20" value="">
+                            <!-- <label <?php //if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenha">Nova senha</label>
+                            <input onkeyup='confirmarSenha();' class="<?php //if(!isset($_GET['update'])) {echo "oculto";} else {echo "show";}?>" type="password" id="novaUsuaSenha" name="novaUsuaSenha" placeholder="" minlength="8" maxlength="20" value="">
 
-                            <label <?php if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenhaConfirma">Confirmar senha</label>
-                            <input onkeyup='confirmarSenha();' class="" type="password" id="novaUsuaSenhaConfirma" name="" placeholder="" minlength="8" maxlength="20" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>
+                            <label <?php //if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenhaConfirma">Confirmar senha</label>
+                            <input onkeyup='confirmarSenha();' class="" type="password" id="novaUsuaSenhaConfirma" name="" placeholder="" minlength="8" maxlength="20" value="" <?php // if(!isset($_GET['update'])) {echo "hidden";}?>> -->
 
 
                             <button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled>Salvar</button>
@@ -61,6 +61,9 @@
                             <div class="button"><a onclick="<?php if(isset($_GET['update'])) {echo "return confirm('Deseja mesmo cancelar?')";}?>" href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>"><button class="" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a></div>
             </form>
     </section>
+    <?php 
+        include_once('navbar.php');
+    ?>
     <script>var senhaAtual = "<?php echo $info["senha_moni"];?>";</script>
     <script src="../../js/perfil.js"></script>
 </body>

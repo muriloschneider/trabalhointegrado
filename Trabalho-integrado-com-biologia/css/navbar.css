@@ -1,36 +1,46 @@
+/* Importando a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');
+
 body {
     margin: 0;
 }
 
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: none;
-  border: 2px solid #76A60F;
-  border-radius: 50px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: none;
+    border: 2px solid #76A60F;
+    border-radius: 50px;
+    position: fixed;
+    bottom: 3em;
+    width: 85%;
 }
-
-li {
-  float: left;
-}
-
-li a {
- 
 
 /* li {
     float: left;
 } */
+
+li a {
+    display: block;
+    color: #76A60F;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 li a:hover:not(.active) {
-  background-color: #111;
+    color: #FFFFFF;
 }
 
 .active {
-    background-color: #04AA6D;
+    background-color: #FFFFFF;
 }

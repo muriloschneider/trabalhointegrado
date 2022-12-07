@@ -77,7 +77,6 @@
                                 ":contato_moni"=>$this->getContato());
             Database::comando($sql,$parametros);
             return true;
-
         }
 
         public function delete(){
@@ -148,5 +147,3 @@
         }
     }
 ?>
-
-\w\()

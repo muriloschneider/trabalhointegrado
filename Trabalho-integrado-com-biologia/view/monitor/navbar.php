@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
 
     <style>
         @font-face {
@@ -23,7 +23,7 @@
             src: url(../font/static/Karla-SemiBold.ttf);
         }
 
-        li {
+        a {
             font-family: "karla";
         }
     </style>
