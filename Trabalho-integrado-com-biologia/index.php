@@ -30,31 +30,7 @@
     </div>
   </header> 
 
-  <main>
-    <div class="coluna">
-        <img src="img/jpg/slider.jpg" width="551px" height="540px">
-    </div>
-    
 
-    <div class="coluna">
-        <div class="linha">
-            <img id="circulo" src="img/jpg/circulo.jpg" width="100px">
-            <p>SAIBA MAIS SOBRE</p>
-        </div>
-
-        <div class="linha-cor">
-            <img src="img/icons/funcionario.svg" width="100px">
-            <p style="color: white;">FUNCIONÁRIOS</p>
-            <img src="img/icons/seta.svg" width="100px">
-
-        </div>
-
-        <div class="linha">
-            <img src="img/jpg/text.png" width="200px">
-        </div>
-    </div>
-
-  </main>
   
 </div>
 </body>

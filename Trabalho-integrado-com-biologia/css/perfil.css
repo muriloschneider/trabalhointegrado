@@ -1,0 +1,82 @@
+/* Importando a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+    border: 0;
+    font-weight: 800;
+  }
+
+body{
+    background: url("../img/jpg/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+h2{
+    text-transform: uppercase;
+    color: white;
+    font-weight: lighter;
+}
+
+.info{
+    border: 2px solid #76A60F;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.botoes{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-wrap{
+    display: flex;
+}
+
+label{
+    color: #76A60F;
+    font-size: 15px;
+}
+
+input{
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+button{
+    background-color: transparent;
+    color: #76A60F;
+    cursor: pointer;
+    font-size: 20px;
+}
+.button{
+    border: 2px solid #76A60F;
+    border-radius: 50px;
+    width: 453px;
+    height: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}

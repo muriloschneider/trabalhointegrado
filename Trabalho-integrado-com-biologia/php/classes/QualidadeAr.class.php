@@ -1,5 +1,5 @@
 <?php
-    include_once(__DIR__."../utils/autoload.php");
+    include_once (__DIR__ ."/../utils/autoload.php");
 
     class QualidadeAr{
         private $id;

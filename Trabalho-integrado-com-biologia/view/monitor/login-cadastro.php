@@ -1,11 +1,11 @@
 <?php
-    if (session_status() === PHP_SESSION_NONE) {
-        session_set_cookie_params(0);
-        session_start();
-        if(isset($_SESSION['id_moni']) && $_SESSION['id_moni'] != '') {
-            header("Location: ../../index.php");
-        } 
-    }
+    // if (session_status() === PHP_SESSION_NONE) {
+    //     session_set_cookie_params(0);
+    //     session_start();
+    //     if(isset($_SESSION['id_moni']) && $_SESSION['id_moni'] != '') {
+    //         header("Location: ../../index.php");
+    //     } 
+    // }
 
     $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
 ?>

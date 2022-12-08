@@ -1,6 +1,5 @@
 /* Importando a fonte */
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -13,16 +12,12 @@
   }
 
 body{
-    /* background: url("../img/jpg/background.jpg"); */
+    background: url("../img/jpg/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 main{
-    /* background-color: rgb(255, 255, 255); */
-    /* width: 100px;
-    height: 200px; */
-    /* margin: 20px; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -56,9 +51,11 @@ p{
     display: flex;
     flex-direction: row;    
     align-items: center;
+    justify-content: space-between;
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-right: 10px;
 }
 
 .linha-cor{
@@ -70,11 +67,24 @@ p{
     display: flex;
     flex-direction: row;    
     align-items: center;
+    justify-content: space-around;
     padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-#circulo{
+.circulo{
     border-radius: 50%;
 }
 
+.principal{
+    border: 8px solid #76A60F;
+    border-radius: 10px;
+}
 
+
+
+.seta{
+    display: flex;
+    justify-self: flex-end;
+}
