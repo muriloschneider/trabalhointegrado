@@ -18,18 +18,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/qualArVer.css">   
+    <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
+    <link rel="stylesheet" href="../../css/agSupVer.css">   
     <link rel="stylesheet" href="../../css/navbar.css">   
-    <title>Qualidade do Ar</title>
+    <title>Águas Subterrâneas</title>
 </head>
+
 
 
 <header>
     <div class="navbar">
       <ul>
-        <li><a href="#">VER MONITORAMENTOS</a></li>
-        <li><a href="index.php">INICIAL</a></li>
-        <li><a href="#">FAZER NOVO MONITORAMENTO</a></li>
+        <li><a href="../vermonAll.php">VER MONITORAMENTOS</a></li>
+        <li><a href="../monitor/perfil.php">INICIAL</a></li>
+        <li><a href="../monitoramentosAll.php">FAZER NOVO MONITORAMENTO</a></li>
       </ul>
     </div>
   </header>
@@ -40,6 +42,7 @@
             <div class="header">
                 <h2>Selecione o monitoramento</h2>
             </div>
+
             <div class="itens">
                 <a href="../aguas-sub/vermon.php">Águas subt.</a>
                 <a href="../aguas-superficiais/vermon.php">Águas super.</a>
@@ -48,6 +51,8 @@
                 <a href="../pressao-sonora/vermon.php">Pressão sonora</a>
                 <a href="../biogas/vermon.php">Biogás</a>
                 <a href="../qualidade-ar/vermon.php">Qualidade do Ar</a>
+                <a href="../freatico-lencol/vermon.php">Lençol freatico</a>
+
 
             </div>
         </div>
@@ -57,6 +62,7 @@
                 <h2 class="col2">Outros monitoramentos</h2>
             </div>
 
+            <center>
             <div class="itens2">
                 <table>
                     <?php
@@ -69,10 +75,11 @@
                 <td><a class="link" href="vermon.php?id_subt=<?php echo $line['id_subt']; ?>"><?php echo $line['num_amostra'];?></td>
                 <td><?php echo date("d/m/Y", strtotime($line['data_coleta']));?></td>
                 <td><a class="link" href="vermon.php?id_subt=<?php echo $line['id_subt']; ?>"><?php echo $line['resultado'];?></td>
+                <td><a  href="vermon.php?id_subt=<?php echo $line['id_subt']; ?>"><img src="../../img/icons/view.svg" alt="" style="height: 30px;"></a></td>
                 <td><a class="table" href="cadmon.php?id_subt=<?php echo $line['id_subt'];?>&acao=update"><img src="../../img/icons/editar.svg" height="30px"></a></td>
-                <td><a class="table" onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-qualidade-ar.php?id_subt=<?php echo $line['id_subt'];?>&acao=delete"><img src="../../img/icons/delete.svg" height="30px"></a></td>
+                <td><a class="table" onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-agua-subt.php?id_subt=<?php echo $line['id_subt'];?>&acao=delete"><img src="../../img/icons/delete.svg" height="30px"></a></td>
             </tr>
-        
+                        </center>
             <?php } ?>
                 </table>
             </div>
@@ -88,7 +95,7 @@
 
     <div class="coluna2">
         <div class="header">
-            <h2>Ultimos monitoramentos</h2>
+            <h2>INFO MONITORAMENTO</h2>
         </div>
         <div class="itens3">
             <?php
@@ -96,10 +103,10 @@
                     $info = AguaSubt::consultarId($_GET['id_subt'])[0];            
                         echo "<p>Informações da última alteração feita:<p>";
                         echo "<p>Id do monitoramento: ".$info['id_subt']."</p>";
-                        echo "<p>num_poco_moni: ".$info['num_poco_moni']."</p>";
-                        echo "<p>num_amostra: ".$info['num_amostra']."</p>";
-                        echo "<p>data_coleta: ".$info['data_coleta']."</p>";
-                        echo "<p>resultado: ".$info['resultado']."</p>";
+                        echo "<p>Número do poço: ".$info['num_poco_moni']."</p>";
+                        echo "<p>Número da amostra: ".$info['num_amostra']."</p>";
+                        echo "<p>Data da coleta: ".$info['data_coleta']."</p>";
+                        echo "<p>Resultado: ".$info['resultado']."</p>";
                     }
                     ?>
         </div>

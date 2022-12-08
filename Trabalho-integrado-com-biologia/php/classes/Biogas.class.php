@@ -1,12 +1,13 @@
 <?php
     include_once (__DIR__ ."/../utils/autoload.php");
     class Biogas {
-            
+        // Atributos
         private $id;
         private $dataMoni;
         private $relatorio;
         private $monitor;
 
+        //Método construtor
         public function __construct($id, $dataMoni, $relatorio, Monitor $monitor) {
             $this->setId($id);
             $this->setDataMoni($dataMoni);
@@ -14,6 +15,7 @@
             $this->setMonitor($monitor);
         }
 
+        //Métodos setters e getters
         public function getId() {
             return $this->id;
         }
@@ -46,6 +48,7 @@
             $this->monitor = $monitor;
         }
 
+        //Métodos de criação, exclusão, atualização e consulta
         public function create(){
             $sql = 'INSERT INTO biogas (data_moni, relatorio, id_monitor) 
             VALUES (:data_moni, :relatorio, :id_monitor)';

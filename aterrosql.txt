@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS `aterro`.`aguas_sup` (
   CONSTRAINT `fk_aguas_sup_monitor1`
     FOREIGN KEY (`id_monitor`)
     REFERENCES `aterro`.`monitor` (`id_moni`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -50,8 +50,8 @@ CREATE TABLE IF NOT EXISTS `aterro`.`aguas_sub` (
   CONSTRAINT `fk_aguas_sub_monitor`
     FOREIGN KEY (`id_monitor`)
     REFERENCES `aterro`.`monitor` (`id_moni`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -68,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `aterro`.`lencol_freatico` (
   CONSTRAINT `fk_lencol_freatico_monitor1`
     FOREIGN KEY (`id_monitor`)
     REFERENCES `aterro`.`monitor` (`id_moni`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -86,8 +86,8 @@ CREATE TABLE IF NOT EXISTS `aterro`.`liquidos_lixiviados` (
   CONSTRAINT `fk_liquidos_lixiviados_monitor1`
     FOREIGN KEY (`monitor_id_moni`)
     REFERENCES `aterro`.`monitor` (`id_moni`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -103,8 +103,8 @@ CREATE TABLE IF NOT EXISTS `aterro`.`qualidade_ar` (
   CONSTRAINT `fk_qualidade_ar_monitor1`
     FOREIGN KEY (`id_monitor`)
     REFERENCES `aterro`.`monitor` (`id_moni`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -123,8 +123,8 @@ CREATE TABLE IF NOT EXISTS `aterro`.`pressao_sonora` (
   CONSTRAINT `fk_pressao_sonora_monitor1`
     FOREIGN KEY (`id_monitor`)
     REFERENCES `aterro`.`monitor` (`id_moni`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -140,8 +140,8 @@ CREATE TABLE IF NOT EXISTS `aterro`.`biogas` (
 CONSTRAINT `fk_biogas_monitor1`
     FOREIGN KEY (`id_monitor`)
     REFERENCES `aterro`.`monitor` (`id_moni`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -161,8 +161,8 @@ CREATE TABLE IF NOT EXISTS `aterro`.`geotecnico` (
 CONSTRAINT `fk_geotecnico_monitor1`
     FOREIGN KEY (`id_monitor`)
     REFERENCES `aterro`.`monitor` (`id_moni`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

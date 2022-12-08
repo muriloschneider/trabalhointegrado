@@ -33,24 +33,31 @@
     <header>
         <div class="navbar">
         <ul>
-            <li><a href="vermon.php">VER MONITORAMENTOS</a></li>
-            <li><a href="../monitor/index.php">INICIAL</a></li>
-            <li><a href="#">FAZER NOVO MONITORAMENTO</a></li>
+            <li><a href="../vermonAll.php">VER MONITORAMENTOS</a></li>
+            <li><a href="../monitor/perfil.php">INICIAL</a></li>
+            <li><a href="../monitoramentosAll.php">FAZER NOVO MONITORAMENTO</a></li>
         </ul>
         </div>
     </header>
 
-    <div class="select">
-        <h2>Selecione o monitoramento</h2>
-        <ul class="moni">
-            <li><a href="cadmon.php">Águas Sub.</a></li>
-            <li><a href="../liq-lix/cadmon.php">Líquidos Lix.</a></li>
-            <li><a href="../qualidade-ar/cadmon.php">Qualidade do ar</a></li>
-            <li><a href="../aguas-superficiais/cadmon.php">Águas super.</a></li>
-            <li><a href="../pressao-sonora/cadmon.php">Pressão sonora</a></li>
-            <li><a href="../biogas/cadmon.php">Biogás</a></li>
-            <li><a href="../geotecnico/cadmon.php">Geotécnico</a></li>
-        </ul>
+    <div class="geral">
+        <div class="menu-sup">
+            <h2>Selecione o monitoramento</h2>
+            <div class="itens">
+                <a href="../aguas-sub/cadmon.php">Águas Sub.</a>
+                <a href="../liq-lix/cadmon.php">Líquidos Lix.</a>
+                <a href="../qualidade-ar/cadmon.php">Qualidade do ar</a>
+                <a href="../aguas-superficiais/cadmon.php">Águas super.</a>
+            </div>
+            <div class="itens">
+                <a href="../pressao-sonora/cadmon.php">Pressão sonora</a>
+                <a href="../biogas/cadmon.php">Biogás</a>
+                <a href="../geo/cadmon.php">Geotécnico</a>
+                <a href="../freatico-lencol/cadmon.php">Lençol freatico</a>
+
+            </div>
+            </ul>
+        </div>
     </div>
 
 

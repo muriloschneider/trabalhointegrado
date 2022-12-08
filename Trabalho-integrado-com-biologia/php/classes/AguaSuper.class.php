@@ -1,7 +1,8 @@
 <?php
-    include_once(__DIR__."../utils/autoload.php");
+    include_once(__DIR__."/../utils/autoload.php");
 
     class AguaSuper{
+        // Atributos
         private $id;
         private $dataColeta;
         private $areaColeta;
@@ -9,6 +10,7 @@
         private $resultado;
         private $monitor;
 
+        //Método construtor
         public function __construct($id, $dataColeta, $areaColeta, $numAmostra, $resultado, Monitor $monitor){
             $this->setId($id);
             $this->setDataColeta($dataColeta);
@@ -18,6 +20,7 @@
             $this->setMonitor($monitor);
         }
 
+        //Métodos setters e getters
         public function setId($id){
             $this->id = $id;
         }
@@ -64,6 +67,7 @@
             return $this->monitor;
         }
         
+        //Métodos de criação, consulta, atualização e exclusão
         public function create(){
             $sql = 'INSERT INTO aguas_sup (data_coleta, area_coleta, num_amostra, resultado, id_monitor)
                     VALUES(:data_coleta, :area_coleta, :num_amostra, :resultado, :id_monitor)';
@@ -88,7 +92,7 @@
                 }
                 $params = array(':pesquisa'=>$pesquisa);
             } else {
-                $sql .= "ORDER BY id_monitor";
+                $sql .= "ORDER BY data_coleta DESC";
                 $params = array();
             }
             return Database::consulta($sql, $params);

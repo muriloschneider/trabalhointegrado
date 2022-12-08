@@ -1,0 +1,101 @@
+/* Importando a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+    border: 0;
+    font-weight: 800;
+  }
+
+body{
+    background: url("../img/jpg/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.coluna2{
+    width: 551px;
+    height: 550px;
+    background-color: #76A60F;
+    border-radius: 20px;
+    margin: 40px;
+    padding: 20px;
+}
+
+.itens{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+
+.col2{
+    color: white;
+}
+
+
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.itens a{
+    color: #76A60F;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin: 20px;
+}
+
+.itens2 a{
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin: 8px;
+}
+
+
+a:hover{
+    color: white;
+}
+
+
+h2{
+    color: white;
+    text-transform: uppercase;
+}
+
+td{
+    color: white;
+    font-size: 16px;
+    max-width: 551px;
+    padding-left: 10px;
+}
+
+th{
+    color: white
+} 
+
+
+
+.itens3{
+    color: white;
+    text-transform: uppercase;
+}
+
+p{
+    margin: 20px;
+}
+

@@ -1,117 +1,141 @@
+/* Importando a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
 *{
     margin: 0;
     padding: 0;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+    border: 0;
+    font-weight: 800;
+  }
 
 body{
-    background-image: url(../img/jpg/background.jpg);
+    background: url("../img/jpg/background.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
-    color: white;
-    overflow-y: visible;
-    overflow-x: hidden;
-    font-family: 'Karla', sans-serif;
-    text-transform: uppercase;
-    font-weight: bolder;
 }
 
-.select{
-    background: none;
-    border: 2px solid #76A60F;
-    border-radius: 8px;
-    max-width: 40%;
-    margin: 2% 6%;
-    padding: 2%;
-}
-
-h2{
-    font-size: 90%;
-    text-align: center;
-    color: white;
-    margin-bottom: 2%;
-}
-
-.moni{
-    list-style-type: none;
-    font-size: 80%;
+main{
     display: flex;
-    justify-content: justify;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+.coluna1{
+    width: 551px;
+    height: 550px;
+    margin: 40px;
+}
+
+
+.coluna2{
+    width: 551px;
+    height: 550px;
+    background-color: #76A60F;
+    border-radius: 20px;
+    margin: 40px;
+    padding: 20px;
+}
+
+.itens{
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    padding: 10px;
 }
 
-.moni li{
-    padding: 4% 5%;
+.linha{
+    height: 300px;
+    width: 551px;
+    margin: 10px;
+    border: 2px solid #76A60F;
+    border-radius: 10px;
+    padding: 20px;
+    /* margin-right: 9em; */
 }
 
-.dif{
-    list-style-type: none;
+.linha2{
+    height: 400px;
+    width: 800px;
+    margin: 10px;
+    border: 2px solid #76A60F;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #76A60F;
+    /* margin-top: 1em; */
+}
+
+.col2{
+    color: white;
+}
+
+
+.header{
     display: flex;
     justify-content: center;
-    font-size: 70%;
 }
 
-.dif li{
-    padding: 0% 10%;
-}
+/* #grafico {
+    border-radius: 15px;
+} */
 
-a{
-    text-decoration: none;
+.itens a{
     color: #76A60F;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin: 20px;
 }
+
+.itens2 a{
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin: 8px;
+}
+
 
 a:hover{
     color: white;
 }
 
-.outros{
-    background: #76A60F;
-    border-radius: 6px;
-    max-width: 40%;
-    height: 10em;
-    margin: 3% 6%;
-    padding: 2%;
-    text-align: left;
-    overflow-y: visible;
-}
 
-.ult{
-    background: #76A60F;
-    border-radius: 6px;
-    width: 400px;
-    height: 455px;
-    text-align: left;
-    float: right;
-    padding: 1%;
-    margin: -34.5% 10% 0% 0%;
-}
-
-.nav{
-    background: none;
-    border: 1px solid #76A60F;
-    border-radius: 20px;
-    color: #76A60F;
-    padding: 1%;
-    max-width: 90%;
-    margin: 2% 6%;
-}
-
-.busca{
-    max-width: 30%;
-    text-align: left;
-}
-
-table{
-    font-size: 15px;
-    margin: 20px;
+h2{
+    color: white;
+    text-transform: uppercase;
 }
 
 td{
+    color: white;
+    font-size: 14px;
+    max-width: 551px;
     padding-left: 10px;
+}
+
+th{
+    color: white
+} 
+
+table{
+    font-size: 12px;
+}
+
+.itens3{
+    color: white;
+    text-transform: uppercase;
 }
 
 p{
     margin: 20px;
 }
+
+/* .ultMon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    margin-right: 12%;
+    margin-top: -30%;
+} */

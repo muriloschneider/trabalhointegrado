@@ -21,7 +21,6 @@
             $moni = new Monitor($_SESSION['id_moni'], '', '', '', '', '');
             $pressao = new Pressao($_GET['id_pressao'], $_POST['area_moni'], $_POST['data_amostra'], $_POST['hora_moni'], $_POST['num_deci'], $_POST['relatorio'], $moni);
             $pressao->create();
-
             header("Location: ../../view/pressao-sonora/vermon.php?msg=Monitoramento cadastrado com sucesso!");
         }
     } catch(Exception $e) {

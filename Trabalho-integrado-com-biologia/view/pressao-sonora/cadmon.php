@@ -22,24 +22,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/agSub.css">
+    <link rel="stylesheet" href="../../css/pressao.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
     <title>Pressão sonora</title>
 </head>
 <body>
-    <!-- <img src="" alt=""> -->
-
-    <div class="select">
-        <h2>Selecione o monitoramento</h2>
-        <ul class="moni">
-            <li><a href="cadmon.php">Águas Sub.</a></li>
-            <li><a href="../liq-lix/cadmon.php">Líquidos Lix.</a></li>
-            <li><a href="../qualidade-ar/cadmon.php">Qualidade do ar</a></li>
-            <li><a href="../aguas-superficiais/cadmon.php">Águas super.</a></li>
-            <li><a href="../pressao-sonora/cadmon.php">Pressão sonora</a></li>
-            <li><a href="../biogas/cadmon.php">Biogás</a></li>
-            <li><a href="../geotecnico/cadmon.php">Geotécnico</a></li>
+<header>
+        <div class="navbar">
+        <ul>
+            <li><a href="../vermonAll.php">VER MONITORAMENTOS</a></li>
+            <li><a href="../monitor/perfil.php">INICIAL</a></li>
+            <li><a href="../monitoramentosAll.php">FAZER NOVO MONITORAMENTO</a></li>
         </ul>
+        </div>
+    </header>
+
+    <div class="geral">
+    <div class="menu-sup">
+        <h2>Selecione o monitoramento</h2>
+            <div class="itens">
+                <a href="../aguas-sub/cadmon.php">Águas Sub.</a>
+                <a href="../liq-lix/cadmon.php">Líquidos Lix.</a>
+                <a href="../qualidade-ar/cadmon.php">Qualidade do ar</a>
+                <a href="../aguas-superficiais/cadmon.php">Águas super.</a>
+            </div>
+            
+            <div class="itens">
+                <a href="../pressao-sonora/cadmon.php">Pressão sonora</a>
+                <a href="../biogas/cadmon.php">Biogás</a>
+                <a href="../geotecnico/cadmon.php">Geotécnico</a>
+                <a href="../freatico-lencol/cadmon.php">Lençol freatico</a>
+
+            </div>
     </div>
+    </div>
+
 
     <div class="forms">
     <form action="../../php/controle/controle-pressao.php?<?php if(isset($info)){echo "acao=update&&id_pressao=".$info['id_pressao']."";}?>" method="post" autocomplete="off">
@@ -59,15 +76,6 @@
             <textarea name="relatorio" id="relatorio" cols="63" rows="2"><?php if(isset($info)){echo $info['relatorio'];}?></textarea><br>
             
             <input type="submit" value="Cadastrar">
-    </div>
-
-    <div class="nav">
-        <ul class="menu">
-            <li><a href="vermon.php">Ver monitoramento</a></li>
-            <li><a href="../monitor/index.php">Inicial</a></li>
-            <li><button name="" id="" type="submit" value="Cadastrar">Fazer novo monitoramento</button></li>
-        </form>
-        </ul>
     </div>
 </body>
 </html>

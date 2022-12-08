@@ -1,12 +1,15 @@
 <?php
-    include_once(__DIR__."../utils/autoload.php");
+    include_once(__DIR__."/../utils/autoload.php");
 
     class LiquidoLix{
+        // Atributos
         private $id;
         private $moniChorume;
         private $quantChorume;
         private $quantAgua;
         private $monitor;
+
+        //Método construtor
         public function __construct($id, $moniChorume, $quantChorume, $quantAgua, Monitor $monitor){
             $this->setId($id);
             $this->setMoniChorume($moniChorume);
@@ -15,6 +18,7 @@
             $this->setMonitor($monitor);
         }
 
+        //Métodos setters e getters
         public function setId($id){
             $this->id = $id;
         }
@@ -55,6 +59,7 @@
             return $this->monitor;
         }
 
+        //Métodos de criação, consulta, atualização e deleção
         public function create(){
             $sql = "INSERT INTO liquidos_lixiviados (moni_chorume, quanti_chorume, quanti_agua, monitor_id_moni)
                     VALUES(:moniChorume, :quantChorume, :quantAgua, :monitor)";
@@ -67,14 +72,19 @@
         
         public static function consultar($tipo, $info){
             $sql = "SELECT * FROM liquidos_lixiviados";
-            switch($tipo){
-                case(1): $sql .= " WHERE id_liqui = :info"; break;
-                case(2): $sql .= " WHERE moni_chorume LIKE :info"; $info = "%".$info."%"; break;
-                case(3): $sql .= " WHERE quanti_chorume LIKE :info"; $info .= "%"; break;
-                case(4): $sql .= " WHERE quanti_agua LIKE :info"; $info .= "%"; break;
-                case(5): $sql .= " WHERE monitor_id_moni = :info"; break;
+            if($tipo > 0){
+                switch($tipo){
+                    case(1): $sql .= " WHERE id_liqui = :info"; break;
+                    case(2): $sql .= " WHERE moni_chorume LIKE :info"; $info = "%".$info."%"; break;
+                    case(3): $sql .= " WHERE quanti_chorume LIKE :info"; $info .= "%"; break;
+                    case(4): $sql .= " WHERE quanti_agua LIKE :info"; $info .= "%"; break;
+                    case(5): $sql .= " WHERE monitor_id_moni = :info"; break;
+                }
             }
-            $parametros = array(":info"=>$info);
+            if($tipo > 0)
+                $parametros = array(":info"=>$info);
+            else
+                $parametros = array();
             return Database::consulta($sql, $parametros);
         }
 
@@ -95,9 +105,9 @@
             return Database::comando($sql, $parametros);
         }
 
-        public static function delete($id){
+        public function delete(){
             $sql = "DELETE FROM liquidos_lixiviados WHERE id_liqui = :id";
-            $parametros = array(":id"=>$id);
+            $parametros = array(":id"=>$this->getId());
             return Database::comando($sql, $parametros);
         }
     }

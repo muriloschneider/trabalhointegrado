@@ -2,6 +2,7 @@
     include_once(__DIR__."/../utils/autoload.php");
 
     class AguaSubt{
+        //Atributos
         private $id;
         private $numPoco;
         private $numAmostra;
@@ -9,6 +10,7 @@
         private $resultado;
         private $monitor;
 
+        //Método construtor
         public function __construct($id, $numPoco, $numAmostra, $dataColeta, $resultado, Monitor $monitor){
             $this->setId($id);
             $this->setNumPoco($numPoco);
@@ -18,6 +20,7 @@
             $this->setMonitor($monitor);
         }
 
+        //Métodos setters e getters
         public function setId($id){
             $this->id = $id;
         }
@@ -65,6 +68,7 @@
             return $this->monitor;
         }
 
+        //Métodos de criação, consulta, atualização e exclusão
         public function create(){
             $sql = "INSERT INTO aguas_sub (num_poco_moni, num_amostra, data_coleta, resultado, id_monitor)
                     VALUES(:numPoco, :numAmostra, :dataColeta, :resultado, :idMonitor)";

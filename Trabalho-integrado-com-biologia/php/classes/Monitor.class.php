@@ -2,7 +2,7 @@
     include_once (__DIR__ ."/../utils/autoload.php");
 
     class Monitor {
-        
+        // Atributos
         private $id;
         private $nome;
         private $cpf;
@@ -10,6 +10,7 @@
         private $senha;
         private $contato;
 
+        // Método construtor
         public function __construct($id, $nome, $cpf, $login, $senha, $contato) {
             $this->setId($id);
             $this->setNome($nome);
@@ -19,6 +20,7 @@
             $this->setContato($contato);
         }
 
+        // Métodos setters e getters
         public function getId() {
             return $this->id;
         }
@@ -67,6 +69,7 @@
             $this->contato = $contato;
         }
 
+        // Métodos de criação, exclusão e atualização
         public function create(){
             $sql = 'INSERT INTO monitor (nome_moni, cpf_moni, login_moni, senha_moni, contato_moni) 
                     VALUES (:nome_moni, :cpf_moni, :login_moni, :senha_moni, :contato_moni)';
@@ -86,7 +89,7 @@
                 ":id_moni" => $this->getId()
             );
             session_start();
-            $_SESSION['id_moni'] = "";
+            session_destroy();
             Database::comando($sql, $params);
             return true;
         }
@@ -143,7 +146,7 @@
                 $_SESSION['id_moni'] = Database::consulta($sql, $params)[0]['id_moni'];
                 return true;
             } else {
-                $_SESSION['id_moni'] = "";
+                session_destroy();
                 return false;
             }
         }

@@ -2,10 +2,13 @@
     include_once (__DIR__ ."/../utils/autoload.php");
 
     class QualidadeAr{
+        // Atributos
         private $id;
         private $dataAnalise;
         private $relatorio;
         private $monitor;
+
+        //Método construtor
         public function __construct($id, $dataAnalise, $relatorio, Monitor $monitor){
             $this->setId($id);
             $this->setDataAnalise($dataAnalise);
@@ -13,6 +16,7 @@
             $this->setMonitor($monitor);
         }
 
+        //Métodos getters e setters
         public function setId($id){
             $this->id = $id;
         }
@@ -45,6 +49,7 @@
             return $this->monitor;
         }
 
+        // Métodos de criação, consulta, atualização e exclusão
         public function create(){
             $sql = 'INSERT INTO qualidade_ar (data_analise, relatorio_analise, id_monitor)
                     VALUES(:dataAnalise, :relatorio, :idMonitor)';
@@ -55,6 +60,7 @@
             return true;
         }
 
+        // Método de consulta
         public static function consultar($busca = 0, $pesquisa = ""){
             $sql = "SELECT * FROM qualidade_ar ";
             if ($busca > 0) {

@@ -25,14 +25,14 @@
 
 
 <header>
-    <div class="navbar">
-      <ul>
-        <li><a href="#">VER MONITORAMENTOS</a></li>
-        <li><a href="index.php">INICIAL</a></li>
-        <li><a href="#">FAZER NOVO MONITORAMENTO</a></li>
-      </ul>
-    </div>
-  </header>
+        <div class="navbar">
+        <ul>
+            <li><a href="../vermonAll.php">VER MONITORAMENTOS</a></li>
+            <li><a href="../monitor/perfil.php">INICIAL</a></li>
+            <li><a href="../monitoramentosAll.php">FAZER NOVO MONITORAMENTO</a></li>
+        </ul>
+        </div>
+    </header>
     
 <main>
     <div class="coluna1">
@@ -48,6 +48,7 @@
                 <a href="../pressao-sonora/vermon.php">Pressão sonora</a>
                 <a href="../biogas/vermon.php">Biogás</a>
                 <a href="../qualidade-ar/vermon.php">Qualidade do Ar</a>
+                <a href="../freatico-lencol/vermon.php">Lençol freatico</a>
 
             </div>
         </div>
@@ -67,6 +68,7 @@
                 <th><a class="link" href="vermon.php?id_ar=<?php echo $line['id_ar']; ?>"><?php echo $line['id_ar'];?></a></th>
                 <td><?php echo date("d/m/Y", strtotime($line['data_analise']));?></td>
                 <td><a class="link" href="vermon.php?id_ar=<?php echo $line['id_ar']; ?>"><?php echo $line['relatorio_analise'];?></td>
+                <td><a  href="vermon.php?id_ar=<?php echo $line['id_ar']; ?>"><img src="../../img/icons/view.svg" alt="" style="height: 30px;"></a></td>
                 <td><a class="table" href="cadmon.php?id_ar=<?php echo $line['id_ar'];?>&acao=update"><img src="../../img/icons/editar.svg" height="30px"></a></td>
                 <td><a class="table" onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-qualidade-ar.php?id_ar=<?php echo $line['id_ar'];?>&acao=delete"><img src="../../img/icons/delete.svg" height="30px"></a></td>
             </tr>
@@ -86,7 +88,7 @@
 
     <div class="coluna2">
         <div class="header">
-            <h2>Ultimos monitoramentos</h2>
+            <h2>INFO MONITORAMENTO</h2>
         </div>
         <div class="itens3">
             <?php

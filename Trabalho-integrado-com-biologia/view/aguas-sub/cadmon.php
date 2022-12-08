@@ -22,30 +22,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/agSub.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
     <title>Águas Subterrâneas</title>
 </head>
 <body>
-    <!-- <img src="" alt=""> -->
 
-    <div class="select">
-        <h2>Selecione o monitoramento</h2>
-        <ul class="moni">
-            <li><a href="cadmon.php">Águas Sub.</a></li>
-            <li><a href="../liq-lix/cadmon.php">Líquidos Lix.</a></li>
-            <li><a href="../qualidade-ar/cadmon.php">Qualidade do ar</a></li>
-            <li><a href="../aguas-superficiais/cadmon.php">Águas super.</a></li>
-            <li><a href="../pressao-sonora/cadmon.php">Pressão sonora</a></li>
-            <li><a href="../biogas/cadmon.php">Biogás</a></li>
-            <li><a href="../geotecnico/cadmon.php">Geotécnico</a></li>
+    
+<header>
+        <div class="navbar">
+        <ul>
+            <li><a href="../vermonAll.php">VER MONITORAMENTOS</a></li>
+            <li><a href="../monitor/perfil.php">INICIAL</a></li>
+            <li><a href="../monitoramentosAll.php">FAZER NOVO MONITORAMENTO</a></li>
         </ul>
+        </div>
+    </header>
+
+    <div class="geral">
+        <div class="menu-sup">
+            <h2>Selecione o monitoramento</h2>
+            <div class="itens">
+                <a href="../aguas-sub/cadmon.php">Águas Sub.</a>
+                <a href="../liq-lix/cadmon.php">Líquidos Lix.</a>
+                <a href="../qualidade-ar/cadmon.php">Qualidade do ar</a>
+                <a href="../aguas-superficiais/cadmon.php">Águas super.</a>
+            </div>
+            <div class="itens">
+                <a href="../pressao-sonora/cadmon.php">Pressão sonora</a>
+                <a href="../biogas/cadmon.php">Biogás</a>
+                <a href="../geo/cadmon.php">Geotécnico</a>
+                <a href="../freatico-lencol/cadmon.php">Lençol freatico</a>
+
+            </div>
+            </ul>
+        </div>
     </div>
+    
 
     <div class="forms">
         <form action="../../php/controle/controle-agua-subt.php?<?php if(isset($info)){echo "acao=update&&id_subt=".$info['id_subt']."";}?>" method="post" autocomplete="off">
-            <label for="num_poco_moni">Nº do poço</label>
+            <label for="num_poco_moni">Número do poço</label>
             <input type="number" name="num_poco_moni" id="num_poco_moni" value="<?php if(isset($info)){ echo $info['num_poco_moni']; }?>"><br>
             
-            <label for="num_amostra">Nº da amostra</label>
+            <label for="num_amostra">Número da amostra</label>
             <input type="number" name="num_amostra" id="num_amostra" value="<?php if(isset($info)){ echo $info['num_amostra']; }?>"><br>
 
             <label for="data_coleta">Data da coleta</label>
@@ -58,13 +77,6 @@
             <input class="button" type="submit" value="Cadastrar">    
     </div>
 
-    <div class="nav">
-        <ul class="menu">
-            <li><a href="vermon.php">Ver monitoramento</a></li>
-            <li><a href="#">Inicial</a></li>
-            <li><a href="#">Fazer novo monitoramento</a></li>
-        </form>
-        </ul>
-    </div>
+   
 </body>
 </html>

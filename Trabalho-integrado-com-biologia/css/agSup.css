@@ -1,82 +1,82 @@
+/* Importando a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
 *{
     margin: 0;
     padding: 0;
-    /* overflow: hidden; */
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+    border: 0;
+    font-weight: 800;
+  }
 
 body{
-    background-image: url(../img/jpg/background.jpg);
+    background: url("../img/jpg/background.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
-    color: #76A60F;
-    font-family: 'Karla', sans-serif;
-    text-transform: uppercase;
-    font-weight: bolder;
+    padding: 50px;
 }
 
-.select{
-    background: none;
-    border: 2px solid #76A60F;
-    border-radius: 8px;
-    max-width: 95%;
-    margin: 4%;
-    padding: 2%;
+main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 h2{
-    font-size: 90%;
-    text-align: center;
-    color: white;
-    margin-bottom: 2%;
-}
-
-.moni{
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    font-size: 70%;
-}
-
-.moni li{
-    padding: 0% 3%;
-}
-
-.menu{
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    font-size: 70%;
-}
-
-.menu li{
-    padding: 0% 10.8%;
+    text-transform: uppercase;
+    color:white;
 }
 
 a{
-    text-decoration: none;
     color: #76A60F;
+    text-transform: uppercase;
+    margin-left: 10px;
+    margin-right: 20px;
 }
 
 a:hover{
     color: white;
 }
 
-.forms{
-    background: none;
+.geral{
+    display: flex;
+    justify-content: center;
+}
+
+.menu-sup{
+    height: 150px;
+    width: 1300px;
+    margin: 10px;
     border: 2px solid #76A60F;
-    border-radius: 8px;
+    border-radius: 10px;
+    padding: 20px;    
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.forms{
+    height:400px;
+    width: 1300px;
+    margin: 10px;
+    border: 2px solid #76A60F;
+    border-radius: 10px;
+    padding: 20px;    
+    padding-left: 40px;
+    padding-right: 40px;
+    background: none;
     max-width: 95%;
     margin: 4%;
     padding: 2%;
     text-align: right;
 }
 
+
 label{
-    margin-right: 3%;
-    font-size: 95%;
+    color: #76A60F;
+    text-transform: uppercase;
 }
 
 input{
@@ -85,8 +85,8 @@ input{
     border-radius: 15px;
     color: #76A60F;
     padding-left: 1%;
-    width: 40%;
-    height: 2em;
+    width: 500px;
+    height: 48px;
     margin-bottom: 2%;
     margin-right: 25%;
 }
@@ -100,36 +100,45 @@ textarea{
     padding-left: 1%;
     padding-top: 1%;
     margin-right: 25%;
+    width: 500px;
+    height: 48px;
 }
 
-.nav{
-    background: none;
-    border: 1px solid #76A60F;
-    border-radius: 20px;
-    color: #76A60F;
-    padding: 1%;
-    max-width: 90%;
-    margin: 4%;
+
+.header{
+    display: flex;
+    justify-content: center;
 }
 
-button{
-    background: none;
-    color: #76A60F;
-    border: none;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: 96%;
+.itens{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
 }
 
-button:hover{
-    color: white;
-}
+
 input:-webkit-autofill {
     transition: background-color 5000s ease-in-out 0s;
   }
   
-  input:focus, textarea:focus {
+input:focus, textarea:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
-  }
+}
+
+input[type=submit]{
+    background-color: transparent;
+    border: 2px solid #76A60F;
+    border-radius: 10px;
+    color: #76A60F;
+    padding: 15px;
+    width: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+input[type=submit]:hover{
+    background-color: #76A60F;
+    color: white;
+}

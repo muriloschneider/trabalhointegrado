@@ -4,7 +4,6 @@
     try {
         //Cadastrar usuário
         $moni = new Monitor('', $_POST['nome_moni'], $_POST['cpf_moni'], $_POST['login_moni'], $_POST['senha_moni'], $_POST['contato_moni']);
-
         if($moni->create()){
             header("Location: ../../view/monitor/login-cadastro.php?msg=sucesso");
         } else {

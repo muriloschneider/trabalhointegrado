@@ -73,6 +73,8 @@ p{
     padding-bottom: 10px;
 }
 
+
+
 .circulo{
     border-radius: 50%;
 }
@@ -82,9 +84,13 @@ p{
     border-radius: 10px;
 }
 
-
-
 .seta{
     display: flex;
     justify-self: flex-end;
+}
+
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

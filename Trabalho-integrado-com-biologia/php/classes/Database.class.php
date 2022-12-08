@@ -17,11 +17,11 @@
       $conexao = self::conectar();
       $stmt = $conexao->prepare($sql);
       $stmt = self::vincularParametros($stmt, $params);
-    //   try{
+      try{
         return $stmt->execute();
-    //   }catch (Exception $e){
-    //     throw new Exception("Erro");
-    //   }
+      }catch (Exception $e){
+        throw new Exception("Erro");
+      }
     }
 
     public static function consulta($sql, $params=array()){
@@ -36,5 +36,15 @@
       }
 
     }
+
+    public static function Listar($sql, $param=array()){
+      $conexao = self::conectar();
+      $comando = $conexao->prepare($sql); 
+      if(!empty($param)){
+          $comando = self::vincularParametros($comando,$param); 
+      }
+      $comando->execute(); 
+      return $comando->fetchAll(); 
+      }
   }
 ?>

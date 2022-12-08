@@ -9,19 +9,19 @@
             $moni = new Monitor($_SESSION['id_moni'], '', '', '', '', '');
             $agua = new AguaSuper($_GET['id_super'], $_POST['data_coleta'], $_POST['area_coleta'], $_POST['num_amostra'], $_POST['resultado'], $moni);
             $agua->update();
-            header("Location: ../../view/aguas-sub/vermon.php?msg=Monitoramento editado com sucesso!");
+            header("Location: ../../view/aguas-superficiais/vermon.php?msg=Monitoramento editado com sucesso!");
         } else if($acao == 'delete') {
             //Deletar
             $moni = new Monitor('','', '', '', '', '');
             $agua = new AguaSuper($_GET['id_super'], '', '', '', '', $moni);
             $agua->delete();
-            header("Location: ../../view/aguas-sub/vermon.php?msg=Monitoramento excluído com sucesso!");
+            header("Location: ../../view/aguas-superficiais/vermon.php?msg=Monitoramento excluído com sucesso!");
         } else {
             //Gerar
             $moni = new Monitor($_SESSION['id_moni'], '', '', '', '', '');
             $agua = new AguaSuper($_GET['id_super'], $_POST['data_coleta'], $_POST['area_coleta'], $_POST['num_amostra'], $_POST['resultado'], $moni);
             $agua->create();
-            header("Location: ../../view/aguas-sub/vermon.php?msg=Monitoramento criado com sucesso!");
+            header("Location: ../../view/aguas-superficiais/vermon.php?msg=Monitoramento criado com sucesso!");
         }
     } catch(Exception $e) {
         echo "<h1>Erro ao modificar as informações.</h1><br> Erro:".$e->getMessage();

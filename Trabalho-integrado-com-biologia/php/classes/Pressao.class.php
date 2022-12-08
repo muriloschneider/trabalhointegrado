@@ -1,8 +1,8 @@
 <?php
-
-include_once (__DIR__ ."/../utils/autoload.php");
+    include_once (__DIR__ ."/../utils/autoload.php");
 
     class Pressao{
+        // Atributos
         private $id;
         private $area;
         private $dataAmostra;
@@ -11,8 +11,7 @@ include_once (__DIR__ ."/../utils/autoload.php");
         private $relatorio;
         private $monitor;
 
-        
-
+        //Método construtor        
         public function __construct($id, $area, $dataAmostra, $horaMoni, $numDeci, $relatorio, Monitor $monitor) {
             $this->setId($id);
             $this->setArea($area);
@@ -94,6 +93,7 @@ include_once (__DIR__ ."/../utils/autoload.php");
             return $str;
         }
 
+        //Métodos de criação, alteração e exclusão
         public function create(){
             $sql = 'INSERT INTO pressao_sonora (area_moni, data_amostra, hora_moni, num_deci, relatorio, id_monitor) 
                     VALUES (:area_moni, :data_amostra, :hora_moni, :num_deci, :relatorio, :id_monitor)';
@@ -142,7 +142,7 @@ include_once (__DIR__ ."/../utils/autoload.php");
                 }
                 $params = array(':pesquisa'=>$pesquisa);
             } else {
-                $sql .= " ORDER BY id_pressao";
+                $sql .= " ORDER BY data_amostra DESC";
                 $params = array();
             }
             return Database::consulta($sql, $params);

@@ -2,9 +2,9 @@
     if (session_status() === PHP_SESSION_NONE) {
         session_set_cookie_params(0);
         session_start();
-        if(!isset($_SESSION['id_moni']) || $_SESSION['id_moni'] == '') {
-            header("Location: login-cadastro.php");
-        }
+    }
+    if(!isset($_SESSION['id_moni']) || $_SESSION['id_moni'] == '') {
+        header("Location: login-cadastro.php");
     }
 
     include_once (__DIR__."/../../php/utils/autoload.php");
@@ -26,25 +26,24 @@
 
 </head> 
 <body>   
-
-<header>
-    <div class="navbar">
-      <ul>
-        <li><a href="monitoramentos.php">VER MONITORAMENTOS</a></li>
-        <li><a href="index.php">INICIAL</a></li>
-        <li><a href="#">FAZER NOVO MONITORAMENTO</a></li>
-      </ul>
-    </div>
-  </header>
+    <header>
+        <div class="navbar">
+        <ul>
+            <li><a href="../vermonAll.php">VER MONITORAMENTOS</a></li>
+            <li><a href="../monitor/perfil.php">INICIAL</a></li>
+            <li><a href="../monitoramentosAll.php">FAZER NOVO MONITORAMENTO</a></li>
+        </ul>
+        </div>
+    </header>
     
         <main>
             <div class="info">
-                <h2>BEM VINDO USUÁRIO <?php echo $info['nome_moni']?>!</h2>
+                <center><h2>BEM VINDO USUÁRIO <?php echo $info['nome_moni']?>!</h2></center>
 
                 <form action="../../php/controle/controle-perfil.php?acao=update" method="post" enctype="multipart/form-data">                           
                     <div class="input-wrap">
                         <label for="nome_moni">NOME</label>
-                        <input required class="" type="" id="nome_moni" name="nome_moni" placeholder="" minlength="3" value="<?php echo $info['nome_moni'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                        <input  required class="" type="" id="nome_moni" name="nome_moni" placeholder="" minlength="3" value="<?php echo $info['nome_moni'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                     </div>
 
                     <div class="input-wrap">
@@ -76,14 +75,23 @@
 
             </div>
         
-            <div class="botoes"> 
-                <div class="button"><button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Salvar</button></div>
+            <div class="botoes" > 
+                
+                   <button div class="button" class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>SALVAR</button>
+          
 
-                <div class="button"><a onclick="return confirm('Deseja mesmo encerrar?')" <?php if(!isset($_GET['update'])) {echo "hidden";}?> href="../../php/controle/controle-perfil.php?acao=delete">Excluir perfil</a></div>
+               
+                    <button class="button" type="button"><a style="color:#76a90f;" onclick="return confirm('Deseja mesmo encerrar?')" <?php if(!isset($_GET['update'])) {echo "hidden";}?> href="../../php/controle/controle-perfil.php?acao=delete">EXCLUIR</a></button>
                 
-                <div class="button"><a onclick="<?php if(isset($_GET['update'])) {echo "return confirm('Deseja mesmo cancelar?')";}?>" href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>"><button class="" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a></div>
                 
-                <div class="button"><a onclick="return confirm('Deseja mesmo encerrar?')" href="../../php/controle/controle-login.php">ENCERRAR A SESSÃO</a></div>
+                   <a class="button" style="font-size:240%; color:#76a90f;" onclick="<?php if(isset($_GET['update'])) {echo "return confirm('Deseja mesmo cancelar?')";}?>" href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>">
+                   <center>  <button class="" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></center>
+                    </a>
+                
+                
+               
+                    <button class="button" type="button"><a style="color:#76a90f;" onclick="return confirm('Deseja mesmo encerrar?')" href="../../php/controle/controle-login.php">ENCERRAR A SESSÃO</a></button>
+
 
         </form>
 
