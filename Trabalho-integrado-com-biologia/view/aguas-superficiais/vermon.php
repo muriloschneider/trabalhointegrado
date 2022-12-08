@@ -1,27 +1,69 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(0);
+        session_start();
+        if(!isset($_SESSION['id_moni']) || $_SESSION['id_moni'] == ''){
+            header("Location: ../monitor/login-cadastro.php");
+        }
+    }
+
+    include_once (__DIR__."/../../php/utils/autoload.php");
+
+    $busca = isset($_POST["busca"]) ? $_POST["busca"] : "0";
+    $procurar = isset($_POST["procurar"]) ? $_POST["procurar"] : "";
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lixeirinho</title>
+    <title>Águas Superficiais</title>
 </head>
-<body>
-    <form action="">
-        <label for="">Numero da Amostra</label>
-        <input type="text">
-        <br>
-        <label for="">Area de Coleta</label>
-        <input type="text">
-        <br>
-        <label for="">Data de Coleta</label>
-        <input type="date" name="" id="">
-        <br>
-        <label for="">Relatorio da Amostra</label>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <br>
-        <button type="submit">Salvar</button>
+<body class="">
+    <form method="post">
+        <input type="radio" id="id_ar" name="busca" value="1" <?php if($busca == "1"){echo "checked";}?>>
+        <label>#ID</label><br>
+        <input type="radio" id="data_analise" name="busca" value="2" <?php if($busca == "2"){echo "checked";}?>>
+        <label>NUM. AMOSTRA</label><br> 
+        <input type="radio" id="data_analise" name="busca" value="2" <?php if($busca == "3"){echo "checked";}?>>
+        <label>AREA COLETA</label><br> 
+        <input type="radio" id="data_analise" name="busca" value="2" <?php if($busca == "4"){echo "checked";}?>>
+        <label>DATA</label><br> 
+        <input type="radio" id="relatorio_analise" name="busca" value="3" <?php if($busca == "5"){echo "checked";}?>>
+        <label>RELATÓRIO</label><br>
+
+        <legend>Procurar: </legend>
+        <input type="text"  name="procurar" id="procurar" size="37" value="<?php echo $procurar;?>">
+        <button type="submit" name="acao" id="acao"></button>
     </form>
-    
+
+    <table>
+        <thead>
+            <tr>
+                <th>#ID</th>
+                <th>Número da Amostra</th>
+                <th>Area da Coleta</th>
+                <th>Data</th>
+                <th>Relatório</th>
+                <th>ALTERAR</th>
+                <th>EXCLUIR</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+            $consulta = AguaSuper::consultar($busca, $procurar);
+            foreach($consulta as $key => $line) {
+        ?>
+            <tr>
+                <th><?php echo $line['id_super'];?></th>
+                <th><?php echo $line['num_amostra'];?></th>
+                <th><?php echo $line['area_coleta'];?></th>
+                <td><?php echo date("d/m/Y", strtotime($line['data_analise']));?></td>
+                <td><?php echo $line['relatorio_analise'];?></td>
+                <td><a href="cadmon.php?id_ar=<?php echo $line['id_ar'];?>&acao=update">teste</a></td>
+                <td><a onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-qualidade-ar.php?id_ar=<?php echo $line['id_ar'];?>&acao=delete">teste</a></td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
 </body>
 </html>

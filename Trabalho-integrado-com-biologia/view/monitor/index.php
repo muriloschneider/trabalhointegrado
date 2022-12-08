@@ -23,7 +23,7 @@
     <div class="navbar">
       <ul>
         <li><a href="#">INICIAL</a></li>
-        <li><a href="#">MONITORAMENTO</a></li>
+        <li><a href="monitoramentos.php">MONITORAMENTO</a></li>
         <li><a href="perfil.php">PERFIL</a></li>
         <li><a href="#">SOBRE</a></li>
       </ul>

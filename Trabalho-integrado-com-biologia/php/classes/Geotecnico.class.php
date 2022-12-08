@@ -98,7 +98,7 @@
             return Database::comando($sql,$parametros);
         }
 
-        public static function listar($buscar = 0, $procurar = ""){
+        public static function consultar($buscar = 0, $procurar = ""){
             $sql = "SELECT * FROM geotecnico";
             if ($buscar > 0)
                 switch($buscar){
@@ -116,27 +116,10 @@
             return Database::consulta($sql, $parametros);
         }
 
-        public static function select($rows="*", $where = null, $search = null, $order = null, $group = null) {
-            $pdo = Database::conectar();
-            $sql= "SELECT $rows FROM geotecnico";
-            if($where != null) {
-                $sql .= " WHERE $where";
-                if($search != null) {
-                    if(is_numeric($search) == false) {
-                        $sql .= " LIKE '%". trim($search) ."%'";
-                    } else if(is_numeric($search) == true) {
-                        $sql .= " <= '". trim($search) ."'";
-                    }
-                }
-            }
-            if($order != null) {
-                $sql .= " ORDER BY $order";
-            }
-            if($group != null) {
-                $sql .= " GROUP BY $group";
-            }
-            $sql .= ";";
-            return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        public static function consultarId($id){
+            $sql = "SELECT * FROM geotecnico WHERE id_geo = :id_geo";
+            $params = array(':id_geo'=>$id);
+            return Database::consulta($sql, $params);
         }
     }
 ?>

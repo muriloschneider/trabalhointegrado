@@ -12,7 +12,7 @@
 <header>
     <div class="navbar">
       <ul>
-        <li><a href="#">VER MONITORAMENTO</a></li>
+        <li><a href="vermon.php">VER MONITORAMENTO</a></li>
         <li><a href="#">INICIO</a></li>
         <li><a href="#">REALIZAR MONITORAMENTO</a></li>
       </ul>

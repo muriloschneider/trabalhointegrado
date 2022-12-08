@@ -6,10 +6,9 @@
             header("Location: login-cadastro.php");
         }
     }
-if(isset($_SESSION['dispId']) && $_SESSION['dispId'] != '') {
-        $data = Dispositivo::consultarData($_SESSION['dispId'])[0];
-    }
+
     include_once (__DIR__."/../../php/utils/autoload.php");
+
     //Salvar contexto
     $info = Monitor::consultarId($_SESSION['id_moni'])[0];
     
@@ -31,8 +30,8 @@ if(isset($_SESSION['dispId']) && $_SESSION['dispId'] != '') {
 <header>
     <div class="navbar">
       <ul>
-        <li><a href="#">VER MONITORAMENTOS</a></li>
-        <li><a href="#">INICIAL</a></li>
+        <li><a href="monitoramentos.php">VER MONITORAMENTOS</a></li>
+        <li><a href="index.php">INICIAL</a></li>
         <li><a href="#">FAZER NOVO MONITORAMENTO</a></li>
       </ul>
     </div>
@@ -42,15 +41,15 @@ if(isset($_SESSION['dispId']) && $_SESSION['dispId'] != '') {
             <div class="info">
                 <h2>BEM VINDO USUÁRIO <?php echo $info['nome_moni']?>!</h2>
 
-                <form action="../../php/controle/controle-perfil.php" method="post" enctype="multipart/form-data">                           
+                <form action="../../php/controle/controle-perfil.php?acao=update" method="post" enctype="multipart/form-data">                           
                     <div class="input-wrap">
                         <label for="nome_moni">NOME</label>
                         <input required class="" type="" id="nome_moni" name="nome_moni" placeholder="" minlength="3" value="<?php echo $info['nome_moni'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                     </div>
 
                     <div class="input-wrap">
-                        <label for="cpf_moni">Certidão de Pessoa Física</label>
-                        <input required class="" type="email" id="text" name="cpf_moni" placeholder="" value="<?php echo $info['cpf_moni'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                        <label for="cpf_moni">CPF</label>
+                        <input required class="" type="text" id="text" name="cpf_moni" placeholder="" value="<?php echo $info['cpf_moni'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                     </div>
 
                     <div class="input-wrap">
@@ -60,12 +59,12 @@ if(isset($_SESSION['dispId']) && $_SESSION['dispId'] != '') {
 
                     <div class="input-wrap">
                         <label for="login_moni">Login</label>
-                        <input required class="" type="email" id="telefone" name="login_moni" placeholder="" value="<?php echo $info['login_moni'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                        <input required class="" type="text" id="telefone" name="login_moni" placeholder="" value="<?php echo $info['login_moni'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                     </div>
 
                     <div class="input-wrap">
-                        <label for="usuaSenha">Senha</label>
-                        <input required onkeyup='confirmarSenha();' class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="" minlength="8" value="<?php echo $info['senha_moni'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                        <label for="senha_moni">Senha</label>
+                        <input required class="" type="password" id="senha_moni" name="senha_moni" placeholder="" minlength="8" value="<?php echo $info['senha_moni'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                     </div>
 
                      <!-- <label <?php //if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenha">Nova senha</label>
@@ -75,17 +74,19 @@ if(isset($_SESSION['dispId']) && $_SESSION['dispId'] != '') {
                             <input onkeyup='confirmarSenha();' class="" type="password" id="novaUsuaSenhaConfirma" name="" placeholder="" minlength="8" maxlength="20" value="" <?php // if(!isset($_GET['update'])) {echo "hidden";}?>> -->
 
 
-                </form>
             </div>
         
             <div class="botoes"> 
-                <div class="button"><button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled>Salvar</button></div>
+                <div class="button"><button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Salvar</button></div>
 
-                <div class="button"><button class="delete" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled><a onclick="excluir()"> Excluir perfil</a></button></div>
+                <div class="button"><a onclick="return confirm('Deseja mesmo encerrar?')" <?php if(!isset($_GET['update'])) {echo "hidden";}?> href="../../php/controle/controle-perfil.php?acao=delete">Excluir perfil</a></div>
                 
                 <div class="button"><a onclick="<?php if(isset($_GET['update'])) {echo "return confirm('Deseja mesmo cancelar?')";}?>" href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>"><button class="" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a></div>
+                
+                <div class="button"><a onclick="return confirm('Deseja mesmo encerrar?')" href="../../php/controle/controle-login.php">ENCERRAR A SESSÃO</a></div>
 
-                   
+        </form>
+
 
                     
 
@@ -125,8 +126,5 @@ if(isset($_SESSION['dispId']) && $_SESSION['dispId'] != '') {
             </div> -->
         <!-- </div>     -->
                   </div>
-    
-    <script>var senhaAtual = "<?php echo $info["senha_moni"];?>";</script>
-    <script src="../../js/perfil.js"></script>
-</body>
+    </body>
 </html>

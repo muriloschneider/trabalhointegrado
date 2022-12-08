@@ -114,8 +114,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `aterro`.`pressao_sonora` (
   `id_pressao` INT NOT NULL AUTO_INCREMENT,
   `area_moni` LONGTEXT NULL,
-  `data_amostra` DATETIME NULL,
-  `hora_moni` DATETIME NULL,
+  `data_amostra` DATE NULL,
+  `hora_moni` TIME NULL,
   `num_deci` DECIMAL NULL,
   `relatorio` LONGTEXT NULL,
   `id_monitor` INT NOT NULL,
@@ -133,7 +133,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `aterro`.`biogas` (
   `id_biogas` INT NOT NULL AUTO_INCREMENT,
-  `data_moni` DATETIME NULL,
+  `data_moni` DATE NULL,
   `relatorio` LONGTEXT NULL,
   `id_monitor` INT NOT NULL,
   PRIMARY KEY (`id_biogas`),
@@ -150,13 +150,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `aterro`.`geotecnico` (
   `id_geo` INT NOT NULL AUTO_INCREMENT,
-  `data_moni_geo` DATETIME NULL,
+  `data_moni_geo` DATE NULL,
   `nivel_recal` VARCHAR(255) NULL,
   `nivel_liqui` VARCHAR(255) NULL,
   `nivel_incli` VARCHAR(255) NULL,
   `num_apare` INT NULL,
   `local_apare` LONGTEXT NULL,
-  PRIMARY KEY (`id_geo`))
+  `id_monitor` INT NOT NULL,
+  PRIMARY KEY (`id_geo`),
+CONSTRAINT `fk_geotecnico_monitor1`
+    FOREIGN KEY (`id_monitor`)
+    REFERENCES `aterro`.`monitor` (`id_moni`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 

@@ -85,6 +85,8 @@
             $params = array(
                 ":id_moni" => $this->getId()
             );
+            session_start();
+            $_SESSION['id_moni'] = "";
             Database::comando($sql, $params);
             return true;
         }

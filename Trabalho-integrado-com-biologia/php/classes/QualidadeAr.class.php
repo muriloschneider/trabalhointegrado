@@ -55,22 +55,27 @@
             return true;
         }
 
-        public static function consultar($tipo, $info){
-            $sql = "SELECT * FROM qualidade_ar";
-            switch($tipo){
-                case(1): $sql .= " WHERE id_ar = :info"; break;
-                case(2): $sql .= " WHERE data_analise LIKE :info"; $info = "%".$info."%"; break;
-                case(3): $sql .= " WHERE relatorio_analise LIKE :info"; $info = "%".$info."%"; break;
-                case(4): $sql .= " WHERE id_monitor = :info"; break;
+        public static function consultar($busca = 0, $pesquisa = ""){
+            $sql = "SELECT * FROM qualidade_ar ";
+            if ($busca > 0) {
+                switch($busca){
+                    case(1): $sql .= " WHERE id_ar = :pesquisa"; break;
+                    case(2): $sql .= " WHERE data_analise LIKE :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(3): $sql .= " WHERE relatorio_analise LIKE :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(4): $sql .= " WHERE id_monitor = :pesquisa"; break;
+                }
+                $params = array(':pesquisa'=>$pesquisa);
+            } else {
+                $sql .= "ORDER BY data_analise DESC";
+                $params = array();
             }
-            $parametros = array(":info"=>$info);
-            return Database::consulta($sql, $parametros);
+            return Database::consulta($sql, $params);
         }
 
         public function update(){
             $sql = "UPDATE qualidade_ar
                     SET data_analise = :dataAnalise, relatorio_analise = :relatorio
-                    WHERE id_ar = :id";
+                    WHERE id_ar = :id_ar";
             $parametros = array(":dataAnalise"=>$this->getDataAnalise(), 
                                 ":relatorio"=>$this->getRelatorio(), 
                                 ":id_ar"=>$this->getId());

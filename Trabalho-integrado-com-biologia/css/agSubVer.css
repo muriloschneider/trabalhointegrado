@@ -1,16 +1,19 @@
 *{
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
 
 body{
     background-image: url(../img/jpg/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    color: #76A60F;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    overflow-y: visible;
+    overflow-x: hidden;
+    font-family: 'Karla', sans-serif;
     text-transform: uppercase;
     font-weight: bolder;
 }
@@ -51,7 +54,7 @@ h2{
 }
 
 .dif li{
-    padding: 0% 15%;
+    padding: 0% 10%;
 }
 
 a{
@@ -70,18 +73,19 @@ a:hover{
     height: 10em;
     margin: 3% 6%;
     padding: 2%;
-    text-align: right;
+    text-align: left;
+    overflow-y: visible;
 }
 
 .ult{
     background: #76A60F;
     border-radius: 6px;
-    max-width: 40%;
-    height: 31em;
-    padding: 1% 7%;
-    text-align: center;
+    width: 400px;
+    height: 455px;
+    text-align: left;
     float: right;
-    margin: -41% 12% 0% 0%;
+    padding: 1%;
+    margin: -34.5% 10% 0% 0%;
 }
 
 .nav{
@@ -92,4 +96,22 @@ a:hover{
     padding: 1%;
     max-width: 90%;
     margin: 2% 6%;
+}
+
+.busca{
+    max-width: 30%;
+    text-align: left;
+}
+
+table{
+    font-size: 15px;
+    margin: 20px;
+}
+
+td{
+    padding-left: 10px;
+}
+
+p{
+    margin: 20px;
 }

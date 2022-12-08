@@ -3,13 +3,13 @@
     class Biogas {
             
         private $id;
-        private $data_moni;
+        private $dataMoni;
         private $relatorio;
         private $monitor;
 
-        public function __construct($id, $data_moni, $relatorio, Monitor $monitor) {
+        public function __construct($id, $dataMoni, $relatorio, Monitor $monitor) {
             $this->setId($id);
-            $this->setDatamoni($data_moni);
+            $this->setDataMoni($dataMoni);
             $this->setRelatorio($relatorio);
             $this->setMonitor($monitor);
         }
@@ -22,12 +22,12 @@
             $this->id = $id;
         }     
 
-        public function getDatamoni() {
-            return $this->data_moni;
+        public function getDataMoni() {
+            return $this->dataMoni;
         }
 
-        public function setDatamoni($data_moni) {
-            $this->data_moni = $data_moni;
+        public function setDataMoni($dataMoni) {
+            $this->dataMoni = $dataMoni;
         }
         
         public function getRelatorio() {
@@ -47,33 +47,36 @@
         }
 
         public function create(){
-            $sql = 'INSERT INTO aterro.biogas (data_moni, relatorio, id_monitor) 
+            $sql = 'INSERT INTO biogas (data_moni, relatorio, id_monitor) 
             VALUES (:data_moni, :relatorio, :id_monitor)';
             $parametros = array(":data_moni"=>$this->getDatamoni(),
                                 ":relatorio"=>$this->getRelatorio(),
                                 ":id_monitor"=>$this->getMonitor()->getId());
-            return Database::comando($sql,$parametros);
+            Database::comando($sql,$parametros);
+            return true;
         }
 
         public function delete(){
-            $sql = 'UPDATE aterro.biogas SET status = :status
-            WHERE id_biogas = :id_biogas';
-            $parametros = array(":id_biogas"=>$this->getId());
-            return Database::comando($sql,$parametros);
+            $sql = "DELETE FROM biogas WHERE id_biogas = :id_biogas";
+            $params = array(
+                ":id_biogas" => $this->getId()
+            );
+            Database::comando($sql, $params);
+            return true;
         }
 
         public function update(){
-            $sql = 'UPDATE aterro.biogas 
-            SET data_moni = :data_moni, relatorio = :relatorio, id_monitor = :id_monitor, nivel_incli = :nivel_incli, local_apare = :local_apare
+            $sql = 'UPDATE biogas 
+            SET data_moni = :data_moni, relatorio = :relatorio
             WHERE id_biogas = :id_biogas';
             $parametros = array(":data_moni"=>$this->getDatamoni(),
                                 ":relatorio"=>$this->getRelatorio(),
-                                ":id_monitor"=>$this->getMonitor()->getId(),
                                 ":id_biogas"=>$this->getId());
-            return Database::comando($sql,$parametros);
+            Database::comando($sql,$parametros);
+            return true;
         }
 
-        public static function listar($buscar = 0, $procurar = ""){
+        public static function consultar($buscar = 0, $procurar = ""){
             $sql = "SELECT * FROM biogas";
             if ($buscar > 0)
                 switch($buscar){
@@ -87,6 +90,12 @@
             else 
                 $parametros = array();
             return Database::consulta($sql, $parametros);
+        }
+
+        public static function consultarId($id){
+            $sql = "SELECT * FROM biogas WHERE id_biogas = :id_biogas";
+            $params = array(':id_biogas'=>$id);
+            return Database::consulta($sql, $params);
         }
     }
 ?>

@@ -1,0 +1,144 @@
+/* Importando a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+    border: 0;
+    font-weight: 800;
+  }
+
+body{
+    background: url("../img/jpg/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+h2{
+    text-transform: uppercase;
+    color:white;
+}
+
+a{
+    color: #76A60F;
+    text-transform: uppercase;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+a:hover{
+    color: white;
+}
+
+.geral{
+    display: flex;
+    justify-content: center;
+}
+
+.menu-sup{
+    height: 150px;
+    width: 1300px;
+    margin: 10px;
+    border: 2px solid #76A60F;
+    border-radius: 10px;
+    padding: 20px;    
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.forms{
+    height:300px;
+    width: 1300px;
+    margin: 10px;
+    border: 2px solid #76A60F;
+    border-radius: 10px;
+    padding: 20px;    
+    padding-left: 40px;
+    padding-right: 40px;
+    background: none;
+    max-width: 95%;
+    margin: 4%;
+    padding: 2%;
+    text-align: right;
+}
+
+
+label{
+    color: #76A60F;
+    text-transform: uppercase;
+}
+
+input{
+    background: none;
+    border: 1px solid #76A60F;
+    border-radius: 15px;
+    color: #76A60F;
+    padding-left: 1%;
+    width: 500px;
+    height: 48px;
+    margin-bottom: 2%;
+    margin-right: 25%;
+}
+
+textarea{
+    resize: none;
+    background: none;
+    border: 1px solid #76A60F;
+    border-radius: 20px;
+    color: #76A60F;
+    padding-left: 1%;
+    padding-top: 1%;
+    margin-right: 25%;
+    width: 500px;
+    height: 48px;
+}
+
+
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.itens{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+
+input:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+input[type=submit]{
+    background-color: transparent;
+    border: 2px solid #76A60F;
+    border-radius: 10px;
+    color: #76A60F;
+    padding: 15px;
+    width: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+input[type=submit]:hover{
+    background-color: #76A60F;
+    color: white;
+}

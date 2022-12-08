@@ -7,21 +7,21 @@
         if($acao == 'update') {
             //Atualizar
             $moni = new Monitor($_SESSION['id_moni'], '', '', '', '', '');
-            $qual = new QualidadeAr($_GET['id_ar'], $_POST['data_analise'], $_POST['relatorio_analise'], $moni);
+            $qual = new Biogas($_GET['id_biogas'], $_POST['data_moni'], $_POST['relatorio'], $moni);
             $qual->update();
-            header("Location: ../../view/qualidade-ar/vermon.php?msg=Monitoramento editado com sucesso!");
+            header("Location: ../../view/biogas/vermon.php?msg=Monitoramento editado com sucesso!");
         } else if($acao == 'delete') {
             //Deletar
             $moni = new Monitor('','', '', '', '', '');
-            $qual = new QualidadeAr($_GET['id_ar'], '', '', $moni);
+            $qual = new Biogas($_GET['id_biogas'], '', '', $moni);
             $qual->delete();
-            header("Location: ../../view/qualidade-ar/vermon.php?msg=Monitoramento excluído com sucesso!");
+            header("Location: ../../view/biogas/vermon.php?msg=Monitoramento excluído com sucesso!");
         } else {
             //Gerar
             $moni = new Monitor($_SESSION['id_moni'], '', '', '', '', '');
-            $qual = new QualidadeAr($_GET['id_ar'], $_POST['data_analise'], $_POST['relatorio_analise'], $moni);
+            $qual = new Biogas($_GET['id_biogas'], $_POST['data_moni'], $_POST['relatorio'], $moni);
             $qual->create();
-            header("Location: ../../view/qualidade-ar/vermon.php?msg=Monitoramento criado com sucesso!");
+            header("Location: ../../view/biogas/vermon.php?msg=Monitoramento criado com sucesso!");
         }
     } catch(Exception $e) {
         echo "<h1>Erro ao modificar as informações.</h1><br> Erro:".$e->getMessage();

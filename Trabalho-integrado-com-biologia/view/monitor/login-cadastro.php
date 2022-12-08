@@ -1,11 +1,11 @@
 <?php
-    // if (session_status() === PHP_SESSION_NONE) {
-    //     session_set_cookie_params(0);
-    //     session_start();
-    //     if(isset($_SESSION['id_moni']) && $_SESSION['id_moni'] != '') {
-    //         header("Location: ../../index.php");
-    //     } 
-    // }
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(0);
+        session_start();
+        if(isset($_SESSION['id_moni']) && $_SESSION['id_moni'] != '') {
+            header("Location: ../../index.php");
+        }
+    }
 
     $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
 ?>
@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[NOME DO SITE]</title>
+    <title>Do lixo ao luxo</title>
     <link rel="stylesheet" href="../../css/login-cadastro.css">
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
 </head>
@@ -26,7 +26,7 @@
                 <div class="forms-wrap">
                     <form action="../../php/controle/controle-login.php" method="post" class="sign-in-form">
                         <div class="logo">
-                            <h4>Nome do site</h4>
+                            <h4>Do lixo ao luxo</h4>
                         </div>
 
                         <div class="heading">

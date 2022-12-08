@@ -5,24 +5,22 @@ include_once (__DIR__ ."/../utils/autoload.php");
     class Pressao{
         private $id;
         private $area;
-        private $data_amostra;
-        private $hora_moni;
-        private $num_deci; // número de decimais
+        private $dataAmostra;
+        private $horaMoni;
+        private $numDeci;
         private $relatorio;
         private $monitor;
 
         
 
-        public function __construct($id, $area, $data_amostra, $hora_moni, $num_deci, $relatorio, Monitor $monitor) {
+        public function __construct($id, $area, $dataAmostra, $horaMoni, $numDeci, $relatorio, Monitor $monitor) {
             $this->setId($id);
             $this->setArea($area);
-            $this->setData_amostra($data_amostra);
-            $this->setHora_moni($hora_moni);
-            $this->setNum_deci($num_deci);
+            $this->setDataAmostra($dataAmostra);
+            $this->setHoraMoni($horaMoni);
+            $this->setNumDeci($numDeci);
             $this->setRelatorio($relatorio);
-            $this->setMonitor($monitor)
-            ;
-
+            $this->setMonitor($monitor);
         }  
 
         //Métodos Getters e Setters
@@ -42,28 +40,28 @@ include_once (__DIR__ ."/../utils/autoload.php");
             $this->area = $area;
         }
 
-        public function getData_amostra() {
-            return $this->data_amostra;
+        public function getDataAmostra() {
+            return $this->dataAmostra;
         }
 
-        public function setData_amostra($data_amostra){
-            $this->data_amostra = $data_amostra;
+        public function setDataAmostra($dataAmostra){
+            $this->dataAmostra = $dataAmostra;
         }
 
-        public function getHora_moni() {
-            return $this->hora_moni;
+        public function getHoraMoni() {
+            return $this->horaMoni;
         }
 
-        public function setHora_moni($hora_moni) {
-            $this->hora_moni = $hora_moni;
+        public function setHoraMoni($horaMoni) {
+            $this->horaMoni = $horaMoni;
         }
 
-        public function getNum_deci() {
-            return $this->num_deci;
+        public function getNumDeci() {
+            return $this->numDeci;
         }
 
-        public function setNum_deci($num_deci){
-            $this->num_deci = $num_deci;
+        public function setNumDeci($numDeci){
+            $this->numDeci = $numDeci;
         }
 
         public function getRelatorio() {
@@ -88,9 +86,9 @@ include_once (__DIR__ ."/../utils/autoload.php");
             $str = "<br>[Pressão Sonora]<br>".
                     "<br>id: ".$this->getId().
                     "<br>Área de monitoramento: ".$this->getArea().
-                    "<br>Data da amostra: ".$this->getData_amostra().
-                    "<br>Hora de monitoramento: ".$this->getHora_moni().
-                    "<br>Número de decibéis: ".$this->getNum_deci().
+                    "<br>Data da amostra: ".$this->getDataAmostra().
+                    "<br>Hora de monitoramento: ".$this->getHoraMoni().
+                    "<br>Número de decibéis: ".$this->getNumDeci().
                     "<br>Relatório: ".$this->getRelatorio();
                     "<br>Id do monitor:".$this->getMonitor();
             return $str;
@@ -100,9 +98,9 @@ include_once (__DIR__ ."/../utils/autoload.php");
             $sql = 'INSERT INTO pressao_sonora (area_moni, data_amostra, hora_moni, num_deci, relatorio, id_monitor) 
                     VALUES (:area_moni, :data_amostra, :hora_moni, :num_deci, :relatorio, :id_monitor)';
             $parametros = array(":area_moni"=>$this->getArea(),
-                                ":data_amostra"=>$this->getData_amostra(),
-                                ":hora_moni"=>$this->getHora_moni(),
-                                ":num_deci"=>$this->getNum_deci(),
+                                ":data_amostra"=>$this->getDataAmostra(),
+                                ":hora_moni"=>$this->getHoraMoni(),
+                                ":num_deci"=>$this->getNumDeci(),
                                 ":relatorio"=>$this->getRelatorio(),
                                 ":id_monitor"=>$this->getMonitor()->getId());
             Database::comando($sql,$parametros);
@@ -110,16 +108,13 @@ include_once (__DIR__ ."/../utils/autoload.php");
         }
 
         public function update() {
-                $sql = "UPDATE pressao_sonora SET area_moni = :area_moni, data_amostra = :data_amostra, hora_moni = :hora_moni, num_deci = :num_deci, relatorio = :relatorio, id_monitor = :id_monitor  WHERE id_pressao = :id_pressao";
-                $params = array(
-                    ":id_pressao" => $this->getId(),
-                    ":area_moni" => $this->getArea(),
-                    ":data_amostra" => $this->getData_amostra(),
-                    ":hora_moni" => $this->getHora_moni(),
-                    ":num_deci" => $this->getNum_deci(),
-                    ":relatorio" => $this->getRelatorio(),
-                    ":id_monitor"=> $this->getMonitor()
-                );
+                $sql = "UPDATE pressao_sonora SET area_moni = :area_moni, data_amostra = :data_amostra, hora_moni = :hora_moni, num_deci = :num_deci, relatorio = :relatorio WHERE id_pressao = :id_pressao";
+                $params = array(":area_moni" => $this->getArea(),
+                                ":data_amostra" => $this->getDataAmostra(),
+                                ":hora_moni" => $this->getHoraMoni(),
+                                ":num_deci" => $this->getNumDeci(),
+                                ":relatorio" => $this->getRelatorio(),
+                                ":id_pressao" => $this->getId());
                 Database::comando($sql, $params);
                 return true;
         }
@@ -147,9 +142,15 @@ include_once (__DIR__ ."/../utils/autoload.php");
                 }
                 $params = array(':pesquisa'=>$pesquisa);
             } else {
-                $sql .= " ORDER BY usuaid_pressao";
+                $sql .= " ORDER BY id_pressao";
                 $params = array();
             }
+            return Database::consulta($sql, $params);
+        }
+
+        public static function consultarId($id){
+            $sql = "SELECT * FROM pressao_sonora WHERE id_pressao = :id_pressao";
+            $params = array(':id_pressao'=>$id);
             return Database::consulta($sql, $params);
         }
     } 

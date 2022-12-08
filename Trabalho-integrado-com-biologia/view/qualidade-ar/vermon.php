@@ -7,55 +7,104 @@
         }
     }
 
-    include_once (__DIR__."/../utils/autoload.php");
+    include_once (__DIR__."/../../php/utils/autoload.php");
 
-    $busca = isset($_POST["busca"]) ? $_POST["busca"] : "id_ar";
+    $busca = isset($_POST["busca"]) ? $_POST["busca"] : "0";
     $procurar = isset($_POST["procurar"]) ? $_POST["procurar"] : "";
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>[NOME DO SITE]</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/qualArVer.css">   
+    <link rel="stylesheet" href="../../css/navbar.css">   
+    <title>Qualidade do Ar</title>
 </head>
-<body class="">
-    <form method="post">
-        <input type="radio" id="id_ar" name="busca" value="1" <?php if($busca == "id_ar"){echo "checked";}?>>
-        <label>#ID</label><br>
-        <input type="radio" id="data_analise" name="busca" value="2" <?php if($busca == "data_analise"){echo "checked";}?>>
-        <label>DATA</label><br> 
-        <input type="radio" id="relatorio_analise" name="busca" value="3" <?php if($busca == "relatorio_analise"){echo "checked";}?>>
-        <label>RELATÓRIO</label><br>
 
-        <legend>Procurar: </legend>
-        <input type="text"  name="procurar" id="procurar" size="37" value="<?php echo $procurar;?>">
-        <button type="submit" name="acao" id="acao"></button>
-    </form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>#ID</th>
-                <th>Data</th>
-                <th>Relatório</th>
-                <th>ALTERAR</th>
-                <th>EXCLUIR</th>
+<header>
+    <div class="navbar">
+      <ul>
+        <li><a href="#">VER MONITORAMENTOS</a></li>
+        <li><a href="index.php">INICIAL</a></li>
+        <li><a href="#">FAZER NOVO MONITORAMENTO</a></li>
+      </ul>
+    </div>
+  </header>
+    
+<main>
+    <div class="coluna1">
+        <div class="linha">
+            <div class="header">
+                <h2>Selecione o monitoramento</h2>
+            </div>
+            <div class="itens">
+                <a href="../aguas-sub/vermon.php">Águas subt.</a>
+                <a href="../aguas-superficiais/vermon.php">Águas super.</a>
+                <a href="../geo/vermon.php">Geotécnico</a>
+                <a href="../liq-lix/vermon.php">Líquidos Lix</a>
+                <a href="../pressao-sonora/vermon.php">Pressão sonora</a>
+                <a href="../biogas/vermon.php">Biogás</a>
+                <a href="../qualidade-ar/vermon.php">Qualidade do Ar</a>
+
+            </div>
+        </div>
+
+        <div class="linha2">
+            <div class="header">
+                <h2 class="col2">Outros monitoramentos</h2>
+            </div>
+
+            <div class="itens2">
+                <table>
+                    <?php
+                        $consulta = QualidadeAr::consultar($busca, $procurar);
+                        foreach($consulta as $key => $line) {
+                    ?>
+                <tr>
+                <th><a class="link" href="vermon.php?id_ar=<?php echo $line['id_ar']; ?>"><?php echo $line['id_ar'];?></a></th>
+                <td><?php echo date("d/m/Y", strtotime($line['data_analise']));?></td>
+                <td><a class="link" href="vermon.php?id_ar=<?php echo $line['id_ar']; ?>"><?php echo $line['relatorio_analise'];?></td>
+                <td><a class="table" href="cadmon.php?id_ar=<?php echo $line['id_ar'];?>&acao=update"><img src="../../img/icons/editar.svg" height="30px"></a></td>
+                <td><a class="table" onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-qualidade-ar.php?id_ar=<?php echo $line['id_ar'];?>&acao=delete"><img src="../../img/icons/delete.svg" height="30px"></a></td>
             </tr>
-        </thead>
-        <tbody>
-        <?php
-            $consulta = QualidadeAr::consultar($busca, $procurar);
-            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-        ?>
-            <tr>
-                <th><?php echo $linha['id_ar'];?></th>
-                <td><?php echo date("d/m/Y", strtotime($linha['data_analise']));?></td>
-                <td><?php echo $linha['relatorio_analise'];?></td>
-                <td><a href="cadmon.php?id_ar=<?php echo $linha['id_ar'];?>&acao=update">teste</a></td>
-                <td><a onclick="return confirm('Deseja mesmo excluir?')" href="../../php/controle/controle-qualidade-ar.php?id_ar=<?php echo $linha['id_ar'];?>&acao=delete">teste</a></td>
-            </tr>
-        <?php } ?>
-        </tbody>
-    </table>
+        
+            <?php } ?>
+                </table>
+            </div>
+
+
+            
+
+        </div>
+    </div>
+
+
+
+
+    <div class="coluna2">
+        <div class="header">
+            <h2>Ultimos monitoramentos</h2>
+        </div>
+        <div class="itens3">
+            <?php
+                if(isset($_GET['id_ar'])){
+                    $info = QualidadeAr::consultarId($_GET['id_ar'])[0];            
+                        echo "<p>Informações da última alteração feita:<p>";
+                        echo "<p>Id do monitoramento: ".$info['id_ar']."</p>";
+                        echo "<p>Data do monitoramento: ".$info['data_analise']."</p>";
+                        echo "<p>Relatório do monitoramento: ".$info['relatorio_analise']."</p>";
+                    }
+                    ?>
+        </div>
+
+                    
+    </div>
+    </div>
+
+</main>
+
 </body>
 </html>
